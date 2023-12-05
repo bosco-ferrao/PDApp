@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="PDPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/tabletFirstTemplate.jspx" id="pt1">
+                <f:facet name="header"/>
+                <f:facet name="status"/>
+                <f:facet name="appNav"/>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center"/>
+                <f:facet name="start">
+                    <af:listView value="#{bindings.PersonsView1.collectionModel}" var="item"
+                                 emptyText="#{bindings.PersonsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.PersonsView1.rangeSize}" id="lv1"
+                                 selectionListener="#{bindings.PersonsView1.treeModel.makeCurrent}">
+                        <af:listItem id="li1">
+                            <af:panelGridLayout id="pgl1">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="20%" id="gc1">
+                                        <af:outputFormatted value="#{item.bindings.Id.inputValue}" id="of1"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc2">
+                                        <af:outputFormatted value="#{item.bindings.Name.inputValue}" id="of2"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:listItem>
+                    </af:listView>
+                </f:facet>
+                <f:facet name="end"/>
+                <f:attribute name="endWidth" value="0px"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

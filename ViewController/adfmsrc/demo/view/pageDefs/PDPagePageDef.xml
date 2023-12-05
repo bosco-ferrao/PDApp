@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="PDPagePageDef"
+                Package="demo.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PersonsView1" RangeSize="25" DataControl="AppModuleDataControl" id="PersonsView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PersonsView1Iterator" id="PersonsView1">
+      <nodeDefinition DefName="demo.model.PersonsView" Name="PersonsView10">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

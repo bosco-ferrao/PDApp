@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Persons"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="persons"
+  AliasName="Persons"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Id"
+    IsNotNull="true"
+    Domain="demo.model.Int8"
+    ColumnName="id"
+    SQLType="STRUCT"
+    Type="demo.model.common.Int8"
+    ColumnType="int8"
+    TableName="persons"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Name"
+    Precision="200"
+    ColumnName="name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="persons">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="PersonDesignations"
+    Association="demo.model.PersonDesignationsFkAssoc"
+    AssociationEnd="demo.model.PersonDesignationsFkAssoc.PersonDesignations"
+    AssociationOtherEnd="demo.model.PersonDesignationsFkAssoc.Persons"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PersonsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="persons_pk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="demo.model.Persons.Id"/>
+    </AttrArray>
+  </Key>
+</Entity>
